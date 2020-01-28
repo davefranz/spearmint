@@ -102,11 +102,11 @@ const TestCase = () => {
           {mockDataJSX}
         </section>
       )}
-      <FirstRender
+      {/* <FirstRender
         key={firstRenderStatement.id}
         render={firstRenderStatement}
         dispatchToTestCase={dispatchToTestCase}
-      />
+      /> */}
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId='droppable'>
           {provided => (
@@ -120,12 +120,12 @@ const TestCase = () => {
           )}
         </Droppable>
       </DragDropContext>
-      <LastAssertion
+      {/* <LastAssertion
         key={lastAssertionStatement.id}
         assertion={lastAssertionStatement}
         dispatchToTestCase={dispatchToTestCase}
         isLast={true}
-      />
+      /> */}
     </div>
   );
 };
