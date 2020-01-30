@@ -73,25 +73,21 @@ const Async = ({ async, index, dispatchToTestCase }) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          id={styles.action}
+          id={styles.actionCreator}
         >
-          <img src={closeIcon} id={styles.close} alt='close' onClick={handleClickDeleteAsync} />
-          <div id={styles.actionHeader}>
+          <img 
+          src={closeIcon} 
+          id={styles.close} 
+          alt='close' 
+          onClick={handleClickDeleteAsync} />
+
+          <div id={styles.actionCreatorHeader}>
             <img src={dragIcon} alt='drag' />
             <h3>Async</h3>
           </div>
-          <div id={styles.thunkFlexBox}>
-            <div id={styles.thunkType}>
-              {/* <div id={styles.query}>
-                <label htmlFor='actionsFile' className={styles.queryLabel}>
-                  Actions File Name
-                </label>
-                <input
-                  type="text"
-                  name="actionsFile"
-                  onChange={e => handleChangeAsyncFields(e, 'actionsFile')} />
-              </div> */}
-              <div>
+          
+          <div id={styles.filesFlexBox}>
+            <div id={styles.files}>
                 <label htmlFor='actionsFile'>Actions File Name</label>
                 <input
                   type='text'
@@ -99,8 +95,9 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                   value={async.actionsFile}
                   onChange={handleChangeActionsFileName}
                 />
-              </div>
-              <div>
+            </div>
+
+            <div id={styles.files}>
                 <label htmlFor='typesFile'>Types File Name</label>
                 <input
                   type='text'
@@ -108,20 +105,26 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                   value={async.typesFile}
                   onChange={handleChangeTypesFileName}
                 />
-              </div>
-              <div id={styles.query}>
-                <label htmlFor='asyncFunction' className={styles.queryLabel}>
+            </div>
+          </div>
+
+          <div id={styles.filesFlexBox}>
+            <div id={styles.files}>
+              <label htmlFor='asyncFunction' className={styles.queryLabel}>
                   Async Function
                 </label>
                 <input
                   type="text"
                   name="asyncFunction"
                   onChange={e => handleChangeAsyncFields(e, 'asyncFunction')} />
-              </div>
+            </div>
 
+            <div id={styles.queryFlexBox}>
+              <div id={styles.querySelector}>
               <label htmlFor='method' className={styles.queryLabel}>
                 Method
               </label>
+              <div id={styles.dropdownFlex}>
               <select
                 id='method'
                 value={async.method}
@@ -133,8 +136,13 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                 <option value='put'>put</option>
                 <option value='delete'>delete</option>
               </select>
+              </div>
+              </div>
+            </div>
+          </div>
 
-              <div id={styles.query}>
+          <div id={styles.filesFlexBox}>
+            <div id={styles.files}>
                 <label htmlFor='route' className={styles.queryLabel}>
                   Route
                 </label>
@@ -144,8 +152,9 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                   onChange={e => handleChangeAsyncFields(e, 'route')}
                   />
               </div>
+          
 
-              <div id={styles.query}>
+            <div id={styles.files}>
                 <label htmlFor='store' className={styles.queryLabel}>
                   Store
                 </label>
@@ -153,13 +162,15 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                 type="text" 
                 name="store" 
                 onChange={e => handleChangeAsyncFields(e, 'store')}/>
-              </div>
+            </div>
+          </div>
 
-
+          <div id={styles.queryFlexBox}>
+            <div id={styles.querySelector}>
               <label htmlFor='matcher' className={styles.queryLabel}>
                 Matcher
-            </label>
-
+              </label>
+            <div id={styles.dropdownFlex}>
               <select
                 id='matcher'
                 value={async.matcher}
@@ -169,7 +180,10 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                 <option value='toEqual'>toEqual</option>
                 <option value='toContainEqual'>toContainEqual</option>
               </select>
+              </div>
+            </div>
 
+            <div id={styles.files}>
               <label htmlFor='expectedResponse' className={styles.queryLabel}>
                 Expected Response
                 </label>
@@ -178,10 +192,10 @@ const Async = ({ async, index, dispatchToTestCase }) => {
                 name="expectedResponse"
                 onChange={e => handleChangeAsyncFields(e, 'expectedResponse')}
               />
-
             </div>
           </div>
         </div>
+       
       )
       }
     </Draggable >
